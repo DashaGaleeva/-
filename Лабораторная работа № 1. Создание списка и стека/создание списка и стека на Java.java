@@ -1,4 +1,4 @@
-#создание переменной типа список на Java
+//создание переменной типа список на Java
 public class Main {
     public static void main(String[] args) {
         String[] list = new String [3];
@@ -7,7 +7,7 @@ public class Main {
         list[2] = "3"
     }
 }
-#создание пременной типа стек на Java
+//создание пременной типа стек на Java
 import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
@@ -17,3 +17,4 @@ public class Main {
         stack.push(3);
     }
 }
+
