@@ -137,3 +137,32 @@ if result != -1:
     print(f"Элемент {target} найден на индексе {result}.")
 else:
     print(f"Элемент {target} не найден.")
+
+# Тернарный поиск
+def ternary_search(func, left, right, epsilon=1e-6):
+    """
+    func: Монотонная функция, чье экстремальное значение мы ищем.
+    left: Левая граница интервала поиска.
+    right: Правая граница интервала поиска.
+    epsilon: Допустимая погрешность для остановки поиска.
+    """
+    while abs(right - left) > epsilon:
+        # Делим интервал на три части
+        third = (right - left) / 3
+        left_third = left + third
+        right_third = right - third
+        # Проверяем, какая часть интервала содержит экстремум
+        if func(left_third) < func(right_third):
+            # Экстремум находится в левой трети
+            right = right_third
+        else:
+            # Экстремум находится в правой трети
+            left = left_third
+    # Возвращаем координату экстремума
+    return (left + right) / 2
+# Пример использования
+def f(x):
+    # Пример функции: кубическое уравнение с экстремумом
+    return x**3 - 6*x**2 + 9*x + 15
+extremum_point = ternary_search(f, 0, 5)
+print(f"Экстремум функции находится в точке x={extremum_point:.6f}, значение функции y={f(extremum_point):.6f}")
